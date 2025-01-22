@@ -1,13 +1,14 @@
 ---
 import astroLogo from "../assets/astro.svg";
 import background from "../assets/background.svg";
+import obra1 from "../assets/main.png"; // Ejemplo de imagen de obra digital
+import obra2 from "../assets/1.png"; // Ejemplo de otra obra digital
+import obra3 from "../assets/2.png"; // Ejemplo de otra obra digital
 ---
-
-<script src="main.js" defer></script>
 
 <div
   id="container"
-  class="font-sans bg-gray-50 dark:bg-gray-900 dark:text-gray-100 h-screen transition-all duration-500"
+  class="font-sans bg-gray-50 dark:bg-gray-900 dark:text-gray-100 h-screen overflow-hidden transition-all duration-500"
 >
   <img
     id="background"
@@ -22,11 +23,10 @@ import background from "../assets/background.svg";
         <img src={astroLogo.src} width="115" height="48" alt="Astro Homepage" />
       </a>
       <h1 class="text-4xl font-bold text-customBlue dark:text-customYellow">
-        Portafolio de Proyectos en C++
+        Portafolio de Obras Digitales
       </h1>
       <p class="text-lg text-gray-600 dark:text-gray-300">
-        Explora los proyectos desarrollados para aprender y practicar conceptos
-        avanzados en C++.
+        Explora las obras digitales con derechos de autor protegidas.
       </p>
       <!-- Botón de Cambio de Tema -->
       <button
@@ -35,6 +35,40 @@ import background from "../assets/background.svg";
       >
         Cambiar a Modo Oscuro
       </button>
+    </section>
+
+    <!-- Imágenes Flotantes -->
+    <section
+      id="artworks"
+      class="absolute inset-0 flex justify-center items-center space-x-6 z-20"
+    >
+      <!-- Imágenes flotantes -->
+      <img
+        src={obra1.src}
+        alt="Obra Digital 1"
+        class="w-64 h-auto rounded-lg animate-ping"
+      />
+      <img
+        src={obra2.src}
+        alt="Obra Digital 2"
+        class="w-64 h-auto rounded-lg animate-ping"
+      />
+      <img
+        src={obra3.src}
+        alt="Obra Digital 3"
+        class="w-64 h-auto rounded-lg animate-ping"
+      />
+    </section>
+
+    <!-- Imagen Principal Centralizada -->
+    <section id="main-artwork" class="flex justify-center items-center mt-16">
+      <div class="relative z-30">
+        <img
+          src={obra1.src}
+          alt="Obra Central"
+          class="w-[700px] h-auto rounded-lg shadow-xl hover:scale-105 transition-transform duration-300"
+        />
+      </div>
     </section>
 
     <!-- Projects Section -->
@@ -133,13 +167,4 @@ import background from "../assets/background.svg";
       </div>
     </section>
   </main>
-
-  <!-- Footer -->
-  <footer
-    class="relative z-10 text-center p-6 mt-8 text-gray-500 dark:text-gray-400"
-  >
-    © 2024 Portafolio de C++. Desarrollado con <span class="text-red-500"
-      >♥</span
-    >.
-  </footer>
 </div>

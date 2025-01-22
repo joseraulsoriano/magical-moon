@@ -9,6 +9,16 @@ export default {
 		  customGray: '#1E293B', // Gris oscuro
 		  customYellow: '#FACC15', // Amarillo vibrante
 		},
+		boxShadow: {
+		  'custom-light': '0 4px 6px rgba(0, 0, 0, 0.1)',
+		  'custom-dark': '0 10px 20px rgba(0, 0, 0, 0.25)',
+		},
+		fontFamily: {
+		  custom: ['"Roboto"', 'sans-serif'],
+		},
+		spacing: {
+		  '128': '32rem',
+		},
 	  },
 	},
 	plugins: [],
