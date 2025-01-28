@@ -1,11 +1,85 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import SnowAnimation from "../components/SnowAnimation.vue";
+import { ref } from "vue";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+  </head>
+
+  <body>
+    <!-- Componente de nieve -->
+    <SnowAnimation />
+
+    <!-- Contenedor principal -->
+    <div class="container relative">
+      <!-- Imagen principal -->
+      <img
+        src="/main.png"
+        alt="Obra principal"
+        @mousedown="showDescription = true"
+        @mouseup="unlockImages"
+        class="w-full h-auto cursor-pointer"
+      />
+
+      <!-- Tarjeta de descripción que aparece al hacer clic -->
+      <div
+        v-if="showDescription"
+        class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center"
+      >
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg">
+          <h2 class="text-2xl font-bold">Descripción de la obra</h2>
+          <p>
+            Esta es la descripción de la obra principal. Aquí puedes agregar más
+            detalles sobre la obra.
+          </p>
+          <button
+            @click="showDescription = false"
+            class="mt-4 px-6 py-2 bg-blue-500 text-white rounded">Cerrar</button
+          >
+        </div>
+      </div>
+
+      <!-- Imágenes secundarias que se desbloquean después del clic -->
+      <div v-if="imagesUnlocked" class="flex gap-4 mt-6">
+        <img
+          src="/1.png"
+          alt="Obra secundaria 1"
+          class="w-1/3 cursor-pointer"
+        />
+        <img
+          src="/2.png"
+          alt="Obra secundaria 2"
+          class="w-1/3 cursor-pointer"
+        />
+      </div>
+    </div>
+  </body>
+</html>
+
+<script setup>
+  import { ref } from "vue";
+
+  const showDescription = ref(false); // Controla si la descripción está visible
+  const imagesUnlocked = ref(false); // Controla si las imágenes secundarias están desbloqueadas
+
+  // Función para desbloquear las imágenes
+  const unlockImages = () => {
+    setTimeout(() => {
+      imagesUnlocked.value = true; // Se desbloquean las imágenes después de un breve retraso
+    }, 200);
+  };
+</script>
+
+<style scoped>
+  .container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+</style>

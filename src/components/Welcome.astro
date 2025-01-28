@@ -1,15 +1,17 @@
 ---
 import SnowAnimation from "../components/SnowAnimation.vue";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<div id="snow-path">
-  <!-- Componente de nieve -->
-  <SnowAnimation />
-
-  <!-- Contenedor principal -->
-  <div class="container">
-    <img src="/main.png" alt="Obra principal" />
-    <img src="/1.png" alt="Obra secundaria 1" />
-    <img src="/2.png" alt="Obra secundaria 2" />
+<Layout>
+  <div client:only>
+    <!-- Este componente se ejecutará solo en el cliente -->
+    <SnowAnimation />
   </div>
-</div>
+
+  <!-- Otros elementos en la página -->
+  <div class="container">
+    <h1>Bienvenidos a la obra principal</h1>
+    <p>Aquí iría la descripción</p>
+  </div>
+</Layout>
