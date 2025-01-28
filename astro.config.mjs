@@ -1,11 +1,9 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
-
+import vue from '@astrojs/vue';
 import tailwind from '@astrojs/tailwind';
 import netlify from '@astrojs/netlify';
 
-// https://astro.build/config
+// Configuración de Astro con Vue
 export default defineConfig({
-  integrations: [tailwind()],
-  adapter: netlify(),
+  integrations: [vue(), tailwind(), netlify()],
 });
